@@ -1,0 +1,48 @@
+### Tehtävä 3.1: Info-sivu
+GET http://localhost:3001/info
+
+### Tehtävä 3.2: Kaikkien henkilöiden listaus  
+GET http://localhost:3001/api/persons
+
+### Tehtävä 3.3: Yksittäisen henkilön haku (id 1)
+GET http://localhost:3001/api/persons/1
+
+### Tehtävä 3.3: Yksittäisen henkilön haku (id 999 - ei löydy)
+GET http://localhost:3001/api/persons/999
+
+### Tehtävä 3.4: Henkilön poisto (id 2)
+DELETE http://localhost:3001/api/persons/2
+
+### Tehtävä 3.5: Uuden henkilön lisäys
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Teemu Testihenkilö",
+    "number": "040-9876543"
+}
+
+### Tehtävä 3.6: Virhe - puuttuva nimi
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "number": "040-1111111"
+}
+
+### Tehtävä 3.6: Virhe - puuttuva numero  
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Nimellinen Henkilö"
+}
+
+### Tehtävä 3.6: Virhe - nimi jo käytössä
+POST http://localhost:3001/api/persons
+Content-Type: application/json
+
+{
+    "name": "Arto Hellas",
+    "number": "040-2222222"
+}

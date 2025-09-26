@@ -39,7 +39,7 @@ const App = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/persons')
+      .get('http://localhost:3001/api/persons')
       .then(response => {
         setPersons(response.data)
       })
@@ -53,7 +53,7 @@ const App = () => {
     } else {
       const person = { name: newName, number: newNumber }
       axios
-        .post('http://localhost:3001/persons', person)
+        .post('http://localhost:3001/api/persons', person)
         .then(response => {
           setPersons(persons.concat(response.data))
           setNewName('')
@@ -82,7 +82,7 @@ const App = () => {
   const deleteButtonHandler = (id) => {
     if (window.confirm(`Delete person with id ${id}?`)) {
       axios
-        .delete(`http://localhost:3001/persons/${id}`)
+        .delete(`http://localhost:3001/api/persons/${id}`)
         .then(response => {
           setPersons(persons.filter(person => person.id !== id))
         })
